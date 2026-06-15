@@ -23,11 +23,9 @@ const EventSchema: Schema = new Schema({
 });
 
 // Custom validator to ensure endTime is after startTime
-EventSchema.pre('validate', function(next: any) {
+EventSchema.pre('validate', function() {
   if (this.startTime && this.endTime && this.endTime <= this.startTime) {
-    next(new Error('endTime must be greater than startTime'));
-  } else {
-    next();
+    throw new Error('endTime must be greater than startTime');
   }
 });
 
