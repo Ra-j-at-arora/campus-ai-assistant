@@ -5,6 +5,7 @@ import { Utensils, Calendar, BookOpen, MessageSquare, ChevronRight, CheckSquare 
 import Link from 'next/link';
 import { useAuthStore } from '@/stores/authStore';
 import { apiClient } from '@/services/apiClient';
+import { AuthGuard } from '@/components/auth/AuthGuard';
 
 export default function DashboardPage() {
   const { user } = useAuthStore();
@@ -21,7 +22,8 @@ export default function DashboardPage() {
   }, [user]);
 
   return (
-    <div className="space-y-6 max-w-[1200px] mx-auto py-4 transition-colors duration-200">
+    <AuthGuard>
+      <div className="space-y-6 max-w-[1200px] mx-auto py-4 transition-colors duration-200">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
@@ -180,5 +182,6 @@ export default function DashboardPage() {
 
       </div>
     </div>
+    </AuthGuard>
   );
 }
