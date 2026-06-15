@@ -22,6 +22,79 @@ College campuses have data scattered everywhere—legacy library portals, PDF ca
 - **Database:** MongoDB Atlas (NoSQL)
 - **AI Integration:** Google Gen AI SDK (`@google/genai`) - *Gemini 2.5 Flash*
 
+## 🏗️ Architecture Blueprint
+
+```mermaid
+graph TD
+    User([User / Browser])
+    UI[Next.js Frontend Dashboard]
+    Auth[JWT Auth Store]
+    ChatUI[Chat Interface]
+    API[Node.js / Express Backend]
+    Orchestrator[Chat Orchestrator]
+    Gemini[Google Gemini 2.5 Flash]
+    DB[(MongoDB Atlas)]
+
+    User -->|Views Dashboard & Chats| UI
+    UI -->|Validates Session| Auth
+    UI -->|Sends Query| ChatUI
+    ChatUI -->|POST /api/v1/chat| API
+    API -->|Routes request| Orchestrator
+    Orchestrator -->|1. Analyze intent| Gemini
+    Gemini -.->|Requests Tool Call| Orchestrator
+    Orchestrator -->|Queries Collections| DB
+    DB -->|Returns Data| Orchestrator
+    Orchestrator -->|2. Synthesizes Answer| Gemini
+    Gemini -.->|Final Response| Orchestrator
+    Orchestrator -->|Returns JSON| ChatUI
+```
+
+## 🗄️ Database Schema
+
+```mermaid
+erDiagram
+    User {
+        ObjectId _id PK
+        String name
+        String email
+        String password
+        String role
+    }
+    ChatHistory {
+        ObjectId _id PK
+        ObjectId userId FK
+        String sessionId
+        Array messages
+    }
+    Book {
+        ObjectId _id PK
+        String title
+        String author
+        String category
+        Boolean isAvailable
+    }
+    Event {
+        ObjectId _id PK
+        String title
+        String category
+        Date date
+    }
+    Menu {
+        ObjectId _id PK
+        Date date
+        Array items
+        String mealType
+    }
+    AcademicResource {
+        ObjectId _id PK
+        String title
+        String type
+        Date date
+    }
+
+    User ||--o{ ChatHistory : "owns"
+```
+
 ## 🚀 Setup & Installation
 
 ### Prerequisites
