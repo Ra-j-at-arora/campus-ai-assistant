@@ -7,7 +7,6 @@ College campuses have data scattered everywhere—legacy library portals, PDF ca
 
 **Campus AI Assistant** solves this by providing a Unified Web Dashboard featuring an embedded AI Assistant. Instead of building massive web scrapers, this project implements independent servers for each campus data source. The AI dynamically queries these servers in real-time using Function Calling based on student natural-language queries.
 
-> **Built for the MARS Open Projects 2026 - Web Development (Problem Statement 1)**
 
 ## ✨ Key Features
 - **🧠 Real-Time AI Orchestrator:** Uses Google's Gemini 2.5 Flash to understand user queries and route them to the appropriate database tool in real time.
