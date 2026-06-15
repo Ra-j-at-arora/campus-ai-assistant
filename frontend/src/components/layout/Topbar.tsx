@@ -10,7 +10,6 @@ export const Topbar = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
     setMounted(true);
   }, []);
 
-  const currentTheme = theme === 'system' ? systemTheme : theme;
 
   return (
     <header className="h-16 bg-[#FFFFFF] dark:bg-gray-900 border-b border-[#E5E7EB] dark:border-slate-700 flex items-center justify-between px-4 sm:px-6 z-10 sticky top-0 shrink-0 transition-colors duration-200">

@@ -1,7 +1,7 @@
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { useTheme } from 'next-themes';
 
-export default function TrendsChart({ trends }: { trends: any[] }) {
+export default function TrendsChart({ trends }: { trends: Record<string, unknown>[] }) {
   const { theme, systemTheme } = useTheme();
   const isDark = (theme === 'system' ? systemTheme : theme) === 'dark';
 

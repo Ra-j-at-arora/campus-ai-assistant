@@ -32,7 +32,7 @@ export const analyticsService = {
       const response = await apiClient.get(`/health/${serviceName}`);
       const latency = Date.now() - startTime;
       return { status: response.data.status, latency };
-    } catch (error) {
+    } catch (_error) {
       return { status: 'unhealthy', latency: 0 };
     }
   }
