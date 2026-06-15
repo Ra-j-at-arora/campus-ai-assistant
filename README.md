@@ -141,10 +141,8 @@ npm run dev
 ```
 
 ### 4. Open the App
-Visit `http://localhost:3000` in your browser. Register a new account and start chatting with your Campus AI!
+Visit `https://campus-ai-assistant-rd3z.vercel.app/` in your browser. Register a new account and start chatting with your Campus AI!
 
-## 🎥 Demo Video
-[Insert Link to 5-10 minute YouTube/Google Drive Demo Video Here]
 
 ## 📝 License
 This project was built by Rajat Arora. All rights reserved.
